@@ -17,8 +17,10 @@ const Slider = () => {
     );
   };
   useEffect(() => {
-    nextCard();
-  });
+    if (byDateDesc) {
+        nextCard();
+    }
+});
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
@@ -45,7 +47,7 @@ const Slider = () => {
                   key={`${event.id}`}
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  checked={index === radioIdx}
                 />
               ))}
             </div>

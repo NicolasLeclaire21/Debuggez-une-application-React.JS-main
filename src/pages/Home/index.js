@@ -116,13 +116,15 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
+        {last && // Vérification que last existe avant d'utiliser EventCard (erreur console disant que les données ci-dessous sont required mais undefined)
         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
           date={new Date(last?.date)}
           small
-          label="boom"
-        />
+          label={last?.type} // Affichage du type d'évènement dans le label
+          />
+        };
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
